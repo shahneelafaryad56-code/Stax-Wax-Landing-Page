@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stax &amp; Wax — Vinyl Records</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo"><span class="logo-mark"></span> Stax &amp; Wax</div>
+
+    <nav class="main-links">
+      <li><a href="#now-spinning"><span class="track-tag">A1</span> Now Spinning</a></li>
+      <li><a href="#catalog"><span class="track-tag">A2</span> Catalog</a></li>
+      <li><a href="#request"><span class="track-tag">B1</span> Request</a></li>
+      <li><a href="#footer"><span class="track-tag">B2</span> Visit</a></li>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#request" class="btn-request desktop-only">Request a Pressing</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#now-spinning"><span>Now Spinning</span><span class="track-tag">A1</span></a>
+    <a href="#catalog"><span>Catalog</span><span class="track-tag">A2</span></a>
+    <a href="#request"><span>Request</span><span class="track-tag">B1</span></a>
+    <a href="#footer"><span>Visit</span><span class="track-tag">B2</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">EST. 1994 — SIDE STREET PRESSING HOUSE</span>
+    <h1>Records worth <em>lifting the needle</em> for.</h1>
+    <p>A crate-dug selection of soul, jazz, and first-press vinyl — sourced, graded, and sleeved by hand. Come flip through what's spinning this week.</p>
+    <div class="hero-ctas">
+      <a href="#catalog" class="btn-primary">Browse the Catalog</a>
+      <a href="#request" class="btn-ghost">Request a Pressing</a>
+    </div>
+  </div>
+  <div class="vinyl-stage" id="vinylStage">
+    <svg class="vinyl" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="98" fill="#141311"/>
+      <circle cx="100" cy="100" r="98" fill="none" stroke="#2b2a27" stroke-width="1"/>
+      <circle cx="100" cy="100" r="86" fill="none" stroke="#2b2a27" stroke-width="1"/>
+      <circle cx="100" cy="100" r="74" fill="none" stroke="#2b2a27" stroke-width="1"/>
+      <circle cx="100" cy="100" r="62" fill="none" stroke="#2b2a27" stroke-width="1"/>
+      <circle cx="100" cy="100" r="50" fill="#B08D57"/>
+      <circle cx="100" cy="100" r="50" fill="none" stroke="#8f7345" stroke-width="1"/>
+      <text x="100" y="93" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#1C1B19">STAX &amp; WAX</text>
+      <text x="100" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" fill="#1C1B19">SIDE A — 33⅓ RPM</text>
+      <circle cx="100" cy="100" r="6" fill="#1C1B19"/>
+    </svg>
+    <span class="vinyl-hint">hover to spin</span>
+  </div>
+</section>
+
+<section class="section" id="now-spinning">
+  <div class="section-head">
+    <div>
+      <span class="side-label">SIDE A</span>
+      <h2>Now Spinning</h2>
+    </div>
+  </div>
+  <div class="slider-outer">
+    <div class="slider-track" id="sliderTrack"></div>
+    <div class="slider-nav">
+      <button id="sliderPrev" aria-label="Previous">&#8592;</button>
+      <button id="sliderNext" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="catalog">
+  <div class="section-head">
+    <div>
+      <span class="side-label">SIDE B</span>
+      <h2>Full Catalog</h2>
+    </div>
+  </div>
+  <div class="catalog-grid" id="catalogGrid"></div>
+  <div class="load-more-wrap">
+    <button class="btn-load" id="loadMoreBtn">More Records <span class="dots"></span></button>
+  </div>
+</section>
+
+<section class="section" id="request">
+  <div class="request-wrap">
+    <div class="request-copy">
+      <span class="side-label">B-SIDE REQUEST</span>
+      <h2>Can't find a pressing?</h2>
+      <p>Tell us the record, and we'll comb our supplier network and let you know when it lands in the crate.</p>
+    </div>
+    <div>
+      <form id="requestForm" novalidate>
+        <div class="field" id="field-name">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Marvin Gaye">
+          <span class="error-msg"></span>
+        </div>
+        <div class="field" id="field-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@label.com">
+          <span class="error-msg"></span>
+        </div>
+        <div class="field" id="field-record">
+          <label for="record">Record you're after</label>
+          <input type="text" id="record" name="record" placeholder="Album title — Artist">
+          <span class="error-msg"></span>
+        </div>
+        <div class="field" id="field-message">
+          <label for="message">Anything else we should know? (optional)</label>
+          <textarea id="message" name="message" placeholder="Pressing year, condition, budget..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Request</button>
+        <div class="form-success" id="formSuccess">Request logged — we'll email you the moment we track it down.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  Stax &amp; Wax · 214 Groove Ave · Open Tue–Sun, 11am–7pm
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
